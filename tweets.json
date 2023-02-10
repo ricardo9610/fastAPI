@@ -1,1 +1,41 @@
-[]
+[
+    {
+        "tweet_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "content": "this is the first tweet of the world",
+        "created_at": "2023-02-10 08:26:01.722295",
+        "updated_at": "2023-02-10 13:28:30.151000+00:00",
+        "by": {
+            "user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "email": "ricardo@example.com",
+            "first_name": "Ricardo",
+            "last_name": "Ruiz",
+            "birth_date": "2023-02-10"
+        }
+    },
+    {
+        "tweet_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "content": "Esudien vagos",
+        "created_at": "2023-02-10 08:26:01.722295",
+        "updated_at": "2023-02-10 13:28:30.151000+00:00",
+        "by": {
+            "user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "email": "fernanda@example.com",
+            "first_name": "Fernanda",
+            "last_name": "Cabal",
+            "birth_date": "2023-02-10"
+        }
+    },
+    {
+        "tweet_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "content": "Estoy muy feliz de estar aqui",
+        "created_at": "2023-02-10 08:26:01.722295",
+        "updated_at": "2023-02-10 13:28:30.151000+00:00",
+        "by": {
+            "user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "email": "camila@example.com",
+            "first_name": "Camila",
+            "last_name": "Perez",
+            "birth_date": "2023-02-10"
+        }
+    }
+]

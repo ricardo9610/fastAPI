@@ -67,8 +67,8 @@ class Tweet(BaseModel):
         min_length=1,
         max_length=256,
     )
-    post: datetime = Field(default=datetime.now())
-    update: Optional[datetime] = Field(default=None)
+    created_at: datetime = Field(default=datetime.now())
+    updated_at: Optional[datetime] = Field(default=None)
     by: User = Field(
         ...
     )
@@ -94,7 +94,7 @@ def sigingup( user: UserRegister = Body(...)):
             - user: UserRegister
 
     Returns a json with the basic user information:
-        - user_id: UUIDcd ..
+        - user_id: UUIDcd 
         - email: Emailstr
         - first name:str
         - last_name: str
@@ -203,8 +203,37 @@ def home():
     summary="Post a tweet",
     tags=["Tweets"]
 )
-def post():
-    pass
+def post(tweet: Tweet = Body(...)):
+    """
+    post a tweet
+
+    this path opetarion post a tweet in the app
+
+    parameters:
+        -Request body parameter
+            - tweet: Tweet
+
+    Returns a json with the basic tweet information:
+        - tweet_id: UUIDcd ..
+        - content: str
+        - create_at:datetime
+        - updated_at: datetime
+        - by: User
+    """
+    with open("tweets.json","r+",encoding="utf-8") as f:
+        results = json.loads(f.read())
+        tweet_dict = tweet.dict()
+        tweet_dict["tweet_id"] = str(tweet_dict["tweet_id"])
+        tweet_dict["created_at"] = str(tweet_dict["created_at"])
+        tweet_dict["updated_at"] = str(tweet_dict["updated_at"])
+        tweet_dict["by"]["user_id"] = str(tweet_dict["by"]["user_id"])
+        tweet_dict["by"]["birth_date"] = str(tweet_dict["by"]["birth_date"])
+        tweet_dict["updated_at"] = str(tweet_dict["updated_at"])
+
+        results.append(tweet_dict)
+        f.seek(0)
+        f.write(json.dumps(results))
+        return tweet
 
 ### Show a tweet
 @app.get(
